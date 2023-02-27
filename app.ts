@@ -1,3 +1,5 @@
+export{};//Telling TypeScript that our file is a module with its own scope.
+
 //Video 16: Objects Types
     const car1:{ name:string; mileage:number}={//here the properties 'name & mileage' are both required
         name:"Toyota",
