@@ -6,7 +6,7 @@ export{};//Telling TypeScript that our file is a module with its own scope.
         mileage: 300
     };
     const car2:{ name:string; mileage?:number}={//here the property 'mileage' is not required (optional)
-        name:"",
+        name:"Toyota",
     };
 
 //Video 18: Arrays
