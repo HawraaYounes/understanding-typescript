@@ -21,3 +21,9 @@ export{};//Telling TypeScript that our file is a module with its own scope.
     let safeTuple: readonly [number,boolean,string]; //A good practice is to make the tuple readonly to prevent it from being modified.
     safeTuple=[200,false,'Hello']; //initialize correctly
     // safeTuple.push('World') //Error
+
+//Video 20: Enums
+    enum CardinalDirections1{North,East,South,West}//Numeric Enums(default),initialize 1st value to 0 and have auto increment from that
+    enum CardinalDirections2{North=1,East,South,West}//Numeric Enums(initialized),set the 1st enum to specific value and have auto increment from that
+    enum StatusCodes{NotFound=404,Success=200,Accepted=202}//Numeric Enums(fully initialized),assign unique value for each enum
+    enum RoleEnum{Admin='ADMIN',User='USER'}//String Enums,have more readability
