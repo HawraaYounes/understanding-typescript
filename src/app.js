@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 //Video 34: Using "Watch Mode"
-//Watch mode is used to recompile the file automatically without re-running "tsc app.ts" using the command:
-// "tsc app.ts -w"  OR  "tsc app.ts --watch" 
+/**Watch mode is used to recompile the file automatically without re-running "tsc app.ts" using the command:
+ * "tsc app.ts -w"  OR  "tsc app.ts --watch" **/
 //Video 35: Compiling the Entire Project / Multiple Files
 //To create 'tsconfig file, run: "tsc --init"
 //To compile the whole typescript project, run: "tsc"
@@ -15,8 +15,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //target within compilerOptions tells TypeScript which JavaScript version you'd like to compile your code into. 
 //example:   "compilerOptions": { "target": "esnext" }
 //Video 38: Understanding TypeScript Core Libs
-// TypeScript includes a default set of type definitions for built-in JS APIs, as well as type definitions for things found in browser environments.TypeScript also includes APIs for newer JS features matching the target you specify.
-// You can change these default using libs option in tsconfig.json
+/**  TypeScript includes a default set of type definitions for built-in JS APIs, as well as type
+ *  definitions for things found in browser environments.TypeScript also includes APIs for newer JS
+ *  features matching the target you specify. You can change these default using libs option in tsconfig.json**/
 //Video 39: More Configuration & Compilation Options
 // "allowJs": Allow JavaScript files to be a part of your program. 
 // "checkJs": Enable error reporting in type-checked JavaScript files.
+//Video 40: Working with Source Maps
+/**Enables the generation of sourcemap files that allow debuggers to display the original
+  TypeScript source code when actually working with the emitted JavaScript files.**/ 
