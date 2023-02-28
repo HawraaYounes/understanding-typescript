@@ -36,3 +36,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //"noImplicitAny": Enable error reporting for expressions and declarations with an implied 'any' type. .
 //"strictNullChecks": When enabled, null and undefined have their own distinct types and you’ll get a type error if you try to use them where a concrete value is expected.
 //"strictBindCallApply": Check that the arguments for 'bind', 'call', and 'apply' methods match the original function.
+//Video 44: Code Quality Options
+// "noUnusedLocals":Enable error reporting when local variables aren't read (without globals). 
+// "noUnusedParameters": Enable error reporting when a function parameter isn't read. 
+// "noImplicitReturns": When enabled, TypeScript will check all code paths in a function to ensure they return a value.
