@@ -38,3 +38,13 @@ export{};//Telling TypeScript that our file is a module with its own scope.
       if(typeof userInput=== 'string' && userInput!=null){ //Check the type of userInput before assigning it to another variable.
         userName=userInput; //Correct
       }
+
+//Video30: The "never" Type
+      function error(message: string , errorCode:number): never { 
+        throw {message: message, errorCode: errorCode};
+      }
+      
+      function fail() {  // Inferred return type is never
+        return error("Page Not Found",404);
+      }
+      fail();
