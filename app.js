@@ -27,3 +27,11 @@ function callback(a) {
     console.log(a);
 }
 parent(20, 5, callback);
+//Video 29: The "unknown" type
+var userInput;
+var userName;
+userInput = 'John'; //Correct 
+//userName=userInput; //Error: 'unknown' is not assignable to type 'string'.
+if (typeof userInput === 'string' && userInput != null) { //Check the type of userInput before assigning it to another variable.
+    userName = userInput; //Correct
+}

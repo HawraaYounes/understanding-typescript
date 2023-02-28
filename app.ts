@@ -30,3 +30,11 @@ export{};//Telling TypeScript that our file is a module with its own scope.
       }
       parent(20,5,callback);
  
+//Video 29: The "unknown" type
+      let userInput:unknown;
+      let userName:string;
+      userInput='John'; //Correct 
+      //userName=userInput; //Error: 'unknown' is not assignable to type 'string'.
+      if(typeof userInput=== 'string' && userInput!=null){ //Check the type of userInput before assigning it to another variable.
+        userName=userInput; //Correct
+      }
