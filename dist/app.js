@@ -23,4 +23,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // "checkJs": Enable error reporting in type-checked JavaScript files.
 //Video 40: Working with Source Maps
 /**Enables the generation of sourcemap files that allow debuggers to display the original
-  TypeScript source code when actually working with the emitted JavaScript files.**/ 
+  TypeScript source code when actually working with the emitted JavaScript files.**/
+//Video 41: rootDir & outDir
+//"rootDir": Path to the folder containing ts files.
+//"outDir": Path to the folder with compiled JavaScript files 
+//"removeComments": Disable emitting comments in generated js files.
