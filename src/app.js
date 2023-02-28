@@ -7,3 +7,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //To create 'tsconfig file, run: "tsc --init"
 //To compile the whole typescript project, run: "tsc"
 //To enter general watch mode in the whole project, run: "tsc --watch" OR "tsc -w".
+//Video 36: Including & Excluding Files
+//"exclude": ["node_modules"] //exclude property holds an array of file/folder names/paths that should not be watched.
+//"include": ["src/"]  //include property holds an array of files/paths to check when compiling..
