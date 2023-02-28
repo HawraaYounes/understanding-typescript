@@ -35,7 +35,7 @@ userInput = 'John'; //Correct
 if (typeof userInput === 'string' && userInput != null) { //Check the type of userInput before assigning it to another variable.
     userName = userInput; //Correct
 }
-//Video30: The "never" Type
+//Video 30: The "never" Type
 function error(message, errorCode) {
     throw { message: message, errorCode: errorCode };
 }

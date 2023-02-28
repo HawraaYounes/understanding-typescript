@@ -39,3 +39,7 @@ export{}; //Telling TypeScript that our file is a module with its own scope.
     //"rootDir": Path to the folder containing ts files.
     //"outDir": Path to the folder with compiled JavaScript files 
     //"removeComments": Disable emitting comments in generated js files.
+
+//Video 42: Stop Emitting Files on Compilation Error
+    /** "noEmitOnError": If the value of this property is set to true, TypeScript will not generate
+     *  output JavaScript file if there is any TypeScript error. **/

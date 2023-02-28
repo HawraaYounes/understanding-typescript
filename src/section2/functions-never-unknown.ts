@@ -39,7 +39,7 @@ export{};//Telling TypeScript that our file is a module with its own scope.
         userName=userInput; //Correct
       }
 
-//Video30: The "never" Type
+//Video 30: The "never" Type
       function error(message: string , errorCode:number): never { 
         throw {message: message, errorCode: errorCode};
       }
