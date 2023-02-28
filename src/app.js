@@ -14,3 +14,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //Video 37: Setting a Compilation Target
 //target within compilerOptions tells TypeScript which JavaScript version you'd like to compile your code into. 
 //example:   "compilerOptions": { "target": "esnext" }
+//Video 38: Understanding TypeScript Core Libs
+// TypeScript includes a default set of type definitions for built-in JS APIs, as well as type definitions for things found in browser environments.TypeScript also includes APIs for newer JS features matching the target you specify.
+// You can change these default using libs option in tsconfig.json
