@@ -8,5 +8,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //To compile the whole typescript project, run: "tsc"
 //To enter general watch mode in the whole project, run: "tsc --watch" OR "tsc -w".
 //Video 36: Including & Excluding Files
+//It is possible to tell TypeScript which files to compile,and which ones to ignore using the exclude & include options in tsconfig.json
 //"exclude": ["node_modules"] //exclude property holds an array of file/folder names/paths that should not be watched.
 //"include": ["src/"]  //include property holds an array of files/paths to check when compiling..
+//Video 37: Setting a Compilation Target
+//target within compilerOptions tells TypeScript which JavaScript version you'd like to compile your code into. 
+//example:   "compilerOptions": { "target": "esnext" }
