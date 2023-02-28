@@ -17,3 +17,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //Video 38: Understanding TypeScript Core Libs
 // TypeScript includes a default set of type definitions for built-in JS APIs, as well as type definitions for things found in browser environments.TypeScript also includes APIs for newer JS features matching the target you specify.
 // You can change these default using libs option in tsconfig.json
+//Video 39: More Configuration & Compilation Options
+// "allowJs": Allow JavaScript files to be a part of your program. 
+// "checkJs": Enable error reporting in type-checked JavaScript files.

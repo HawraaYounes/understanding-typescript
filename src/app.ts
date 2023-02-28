@@ -21,7 +21,11 @@ export{}; //Telling TypeScript that our file is a module with its own scope.
     //target within compilerOptions tells TypeScript which JavaScript version you'd like to compile your code into. 
     //example:   "compilerOptions": { "target": "esnext" }
 
-    
+
 //Video 38: Understanding TypeScript Core Libs
     // TypeScript includes a default set of type definitions for built-in JS APIs, as well as type definitions for things found in browser environments.TypeScript also includes APIs for newer JS features matching the target you specify.
     // You can change these default using libs option in tsconfig.json
+
+//Video 39: More Configuration & Compilation Options
+    // "allowJs": Allow JavaScript files to be a part of your program. 
+    // "checkJs": Enable error reporting in type-checked JavaScript files.
