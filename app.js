@@ -17,3 +17,13 @@ function printName(n) {
 var typedFunction; //function of 2 parameters(numbers) and its return type is also number.
 typedFunction = add; //Correct 
 //typedFunction=printName //Error (since printName has only one string parameter & it is a void function)
+//Video 28: Function Types & Callbacks
+function parent(a, b, callback) {
+    var res = a + b;
+    callback(res);
+    return res;
+}
+function callback(a) {
+    console.log(a);
+}
+parent(20, 5, callback);

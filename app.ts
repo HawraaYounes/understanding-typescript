@@ -18,3 +18,15 @@ export{};//Telling TypeScript that our file is a module with its own scope.
        let typedFunction: (n1:number,n2:number)=>number; //function of 2 parameters(numbers) and its return type is also number.
        typedFunction=add; //Correct 
        //typedFunction=printName //Error (since printName has only one string parameter & it is a void function)
+
+//Video 28: Function Types & Callbacks
+      function parent(a:number,b:number,callback:(res:number)=>void){ //'callback' function passed as parameter
+        let res=a+b;
+        callback(res);
+        return res;
+      }
+      function callback(a:number){
+        console.log(a);
+      }
+      parent(20,5,callback);
+ 
