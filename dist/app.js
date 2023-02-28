@@ -26,8 +26,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
   TypeScript source code when actually working with the emitted JavaScript files.**/
 //Video 41: rootDir & outDir
 //"rootDir": Path to the folder containing ts files.
-//"outDir": Path to the folder with compiled JavaScript files 
+//"outDir": Path to the folder with compiled JavaScript files. 
 //"removeComments": Disable emitting comments in generated js files.
 //Video 42: Stop Emitting Files on Compilation Error
 /** "noEmitOnError": If the value of this property is set to true, TypeScript will not generate
- *  output JavaScript file if there is any TypeScript error. **/ 
+ *  output JavaScript file if there is any TypeScript error. **/
+//Video 43:Strict Compilation
+//"strict": Enable all strict type-checking options.
+//"noImplicitAny": Enable error reporting for expressions and declarations with an implied 'any' type. .
+//"strictNullChecks": When enabled, null and undefined have their own distinct types and you’ll get a type error if you try to use them where a concrete value is expected.
+//"strictBindCallApply": Check that the arguments for 'bind', 'call', and 'apply' methods match the original function.
