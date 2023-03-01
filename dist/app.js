@@ -25,9 +25,24 @@ class AccountingDepartment extends Department {
     constructor(id, reports) {
         super(id, 'Accounting'); //The super keyword is used to or invoke a Departments's constructor.
         this.reports = reports;
+        this.lastReport = reports[0];
+    }
+    get LastReport() {
+        if (this.lastReport) {
+            return this, this.lastReport;
+        }
+        throw new Error("lastReport is undefined!");
+    }
+    set LastReport(text) {
+        if (text) {
+            this.addReport(text);
+        }
+        else
+            throw new Error("Report text is Required!");
     }
     addReport(text) {
         this.reports.push(text);
+        this.lastReport = text;
     }
     addEmployee(employee) {
         if (employee === 'Max') {
@@ -36,8 +51,12 @@ class AccountingDepartment extends Department {
         this.employees.push(employee); //We can access employees array since its of type protected
     }
 }
-const accounting = new AccountingDepartment('d1', ['Max']);
+const accounting = new AccountingDepartment('d1', []);
 accounting.addEmployee('Max'); //will not be added
 accounting.addEmployee('Manu'); //will be added
 accounting.addEmployee('John'); //will be added
 accounting.printEmployees(); //['Manu', 'John']
+accounting.addReport("Report 1"); //Add new Report
+console.log(accounting.LastReport); //Report 1
+accounting.LastReport = "Report 2";
+console.log(accounting.LastReport); //Report 2

@@ -25,12 +25,27 @@
     }
   
   class AccountingDepartment extends Department {
+    private lastReport:string;
     constructor(id: string, private reports: string[]) {
       super(id, 'Accounting');//The super keyword is used to or invoke a Departments's constructor.
+      this.lastReport=reports[0];
+    }
+    get LastReport(){//getter to get lastReport property value
+        if(this.lastReport){
+            return this,this.lastReport;
+        }
+        throw new Error("lastReport is undefined!");
+    }
+    set LastReport(text:string){
+        if(text){
+            this.addReport(text);
+        }
+        else throw new Error("Report text is Required!");
     }
   
     addReport(text: string) {
       this.reports.push(text);
+      this.lastReport=text;
     }
     addEmployee(employee:string){//override addEmployee method present in Department class
         if(employee==='Max'){
@@ -40,13 +55,14 @@
     }
   }
   
-  const accounting = new AccountingDepartment('d1', ['Max']);
-  
+  const accounting = new AccountingDepartment('d1', []);
   accounting.addEmployee('Max');//will not be added
   accounting.addEmployee('Manu');//will be added
   accounting.addEmployee('John');//will be added
   accounting.printEmployees();//['Manu', 'John']
-  
-  
+  accounting.addReport("Report 1");//Add new Report
+  console.log(accounting.LastReport);//Report 1
+  accounting.LastReport="Report 2";
+  console.log(accounting.LastReport);//Report 2
   
   
