@@ -40,3 +40,12 @@
         //defaultParams('Hi');  /** Error, since it will assign 'Hi' (string) to parameter "a" of type (number), but here I
                                 /*want to assign 'Hi to "b" (not "a").To solve this, we can pass the value of "a" as "undefined" **/
         defaultParams(undefined,'Hi')//1 Hi World!
+
+//Video 52: The Spread Operator(...)
+        const hobbies=['Sports','Swiming'];
+        const activities=['Hiking'];
+        //activities.push(hobbies); //Error: Can't pass array to push, only strings are allowed;
+        activities.push(...hobbies); //Correct, pushing list of strings using spread operator(...)
+        console.log(activities); //['Hiking', 'Sports', 'Swiming']
+
+        
