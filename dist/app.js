@@ -15,9 +15,29 @@ class Department {
         console.log(this.employees);
     }
 }
-const accounting = new Department("#D1", "Accounting"); //new is a keyword to create an instance of Department object using its constructor
-accounting.describe(); //executes describe function for Accounting Object
-accounting.addEmployee('Max'); //adding new Employee using addEmployee function in Department class
-accounting.addEmployee('John');
-//accounting.employees.push('New')//Error: employees is not accessible outside its class (private)
-accounting.printEmployees(); //['Max', 'John']
+class ITDepartment extends Department {
+    constructor(id, admins) {
+        super(id, 'IT');
+        this.admins = admins;
+    }
+}
+class AccountingDepartment extends Department {
+    constructor(id, reports) {
+        super(id, 'Accounting');
+        this.reports = reports;
+    }
+    addReport(text) {
+        this.reports.push(text);
+    }
+    printReports() {
+        console.log(this.reports);
+    }
+}
+const it = new ITDepartment('d1', ['Max']);
+it.addEmployee('Max');
+it.addEmployee('Manu');
+// it.employees[2] = 'Anna';
+it.describe();
+it.name = 'NEW NAME';
+it.printEmployees();
+console.log(it);
