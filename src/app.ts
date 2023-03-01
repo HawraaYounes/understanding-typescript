@@ -1,5 +1,5 @@
     class  Department{
-
+        static year=2023;
         protected employees:string[]=[];//protected make the property not accessible outside the class,but accessible to children that extends it.
         
         constructor(private readonly id:string,public name:string){//constructur to call it later and create instance of Department Object(shorthand method)
@@ -7,6 +7,9 @@
         }
         describe(this:Department){ //describe is a constructor function that refer to an object of type Department ONLY.
             console.log(`Department ${this.id}: ${this.name}`);
+        }
+        static staticFunction(name:string){
+            return name;
         }
         addEmployee(employee:string){
             this.employees.push(employee);
@@ -54,7 +57,8 @@
         this.employees.push(employee);//We can access employees array since its of type protected
     }
   }
-  
+  console.log(Department.year,Department.staticFunction);//static method that cannot be accessed on class instance,it's accessed on class itself.
+ 
   const accounting = new AccountingDepartment('d1', []);
   accounting.addEmployee('Max');//will not be added
   accounting.addEmployee('Manu');//will be added
