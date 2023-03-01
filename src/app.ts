@@ -31,3 +31,12 @@
         const test=(msg:string)=> { //Arrow Function Syntax
             return `hello ${msg}`;
         }
+
+//Video 51: Default Function Parameters
+        const defaultParams=(a=1,b:string='Hello',c:string='World!')=>{
+           console.log(`${a}  ${b}  ${c}`);
+        }
+        defaultParams(2,'Hawraa','Younes');//2 Hawraa Younes
+        //defaultParams('Hi');  /** Error, since it will assign 'Hi' (string) to parameter "a" of type (number), but here I
+                                /*want to assign 'Hi to "b" (not "a").To solve this, we can pass the value of "a" as "undefined" **/
+        defaultParams(undefined,'Hi')//1 Hi World!
