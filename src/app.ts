@@ -7,7 +7,8 @@ add:(a:number,b:number)=>{
 }
 
 interface Named{//Interface, it defines the syntax(structure) for objects to follow
-    readonly name:string;
+    readonly name?:string;
+    gender?:string; //optional property that might exists in classes that implements this interface, but doesn't have to.
 }
 
 interface Greetable extends Named{//Interface that extends Named,which force a class that implements them Greetable follow both Named & Greetable structure
@@ -17,19 +18,24 @@ interface Greetable extends Named{//Interface that extends Named,which force a c
 
 }
 class Person implements Greetable {//Person must have the same properties and methods that Greetable have
-    name: string;
+    name?: string; //name is optional
     age = 30;
-    constructor(n: string) {
-      this.name = n;
+    constructor(n?: string) {//n is optional
+        if(n){
+            this.name = n;
+        }
     }
     greet(phrase: string) {
-      console.log(phrase + ' ' + this.name);
+        if(this.name){
+            console.log(phrase + ' ' + this.name);
+        }
+        else console.log(phrase);
     }
   }
   
   let user: Greetable;
   
-  user = new Person('Max');
+  user = new Person();
   //user.name='hello' //Error: Cannot assign to 'name' because it is a read-only property
-  user.greet('Hi there - I am');
+  user.greet('Hi there');
   console.log(user);
