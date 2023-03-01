@@ -22,3 +22,8 @@ letDeclaration();
 //const: block-scoped & its value cannot be changed, & can be redeclared.
 const num = 100;
 //num = 200; //Compiler Error: Cannot assign to 'num' because it is a constant
+//Video 50: Arrow Functions
+//test(); //Error: 'test' used before its declaration. (Cannot be hoisted)
+const test = (msg) => {
+    return `hello ${msg}`;
+};
