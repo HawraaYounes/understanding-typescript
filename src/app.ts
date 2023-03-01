@@ -1,5 +1,5 @@
 interface Greetable{//Interface It defines the syntax(structure) for objects to follow
-    name:string;
+    readonly name:string;
     age:number;
     greet(phrase:string):void;
 
@@ -18,5 +18,6 @@ class Person implements Greetable {//Person must have the same properties and me
   let user: Greetable;
   
   user = new Person('Max');
+  //user.name='hello' //Error: Cannot assign to 'name' because it is a read-only property
   user.greet('Hi there - I am');
   console.log(user);
