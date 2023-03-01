@@ -48,4 +48,12 @@
         activities.push(...hobbies); //Correct, pushing list of strings using spread operator(...)
         console.log(activities); //['Hiking', 'Sports', 'Swiming']
 
-        
+//Video 53: Rest Parameters
+    function getAverage(...args: number[]) { //Rest Param is passed to getAverage
+        const avg = args.reduce(function (a, b) {
+            return a + b;
+        }, 0) / args.length;
+
+        return avg;
+    }
+    console.log(`Average of the given numbers is: ${getAverage(10, 20, 30, 40, 50)}`); //Average of the given numbers is: 30
