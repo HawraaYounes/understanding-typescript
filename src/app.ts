@@ -2,7 +2,7 @@ class  Department{
 
     private employees:string[]=[];//private make the property accessible in its class ONLY.
     
-    constructor(private id:string,private name:string){//constructur to call it later and create instance of Department Object(shorthand method)
+    constructor(private readonly id:string,private name:string){//constructur to call it later and create instance of Department Object(shorthand method)
        
     }
     describe(this:Department){ //describe is a constructor function that refer to an object of type Department ONLY.
