@@ -1,3 +1,11 @@
+interface addFun{ //interface as a function
+    (a:number,b:number):number;
+}
+let add:addFun; //add is a function of type addFun
+add:(a:number,b:number)=>{
+    return a+b;
+}
+
 interface Named{//Interface, it defines the syntax(structure) for objects to follow
     readonly name:string;
 }

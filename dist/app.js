@@ -1,4 +1,8 @@
 "use strict";
+let add; //add is a function of type addFun
+add: (a, b) => {
+    return a + b;
+};
 class Person {
     constructor(n) {
         this.age = 30;
