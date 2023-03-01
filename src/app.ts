@@ -1,6 +1,6 @@
     class  Department{
 
-        private employees:string[]=[];//private make the property accessible in its class ONLY.
+        protected employees:string[]=[];//protected make the property not accessible outside the class,but accessible to children that extends it.
         
         constructor(private readonly id:string,public name:string){//constructur to call it later and create instance of Department Object(shorthand method)
         
@@ -19,36 +19,34 @@
     class ITDepartment extends Department {//ITDepartment class instance of Department,has all its methods and properties & have additional ones.
         admins: string[];
         constructor(id: string, admins: string[]) {
-        super(id, 'IT');
+        super(id, 'IT');//The super keyword is used to or invoke a Departments's constructor.
         this.admins = admins;
         }
     }
   
   class AccountingDepartment extends Department {
     constructor(id: string, private reports: string[]) {
-      super(id, 'Accounting');
+      super(id, 'Accounting');//The super keyword is used to or invoke a Departments's constructor.
     }
   
     addReport(text: string) {
       this.reports.push(text);
     }
-  
-    printReports() {
-      console.log(this.reports);
+    addEmployee(employee:string){//override addEmployee method present in Department class
+        if(employee==='Max'){
+            return;
+        }
+        this.employees.push(employee);//We can access employees array since its of type protected
     }
   }
   
-  const it = new ITDepartment('d1', ['Max']);
+  const accounting = new AccountingDepartment('d1', ['Max']);
   
-  it.addEmployee('Max');
-  it.addEmployee('Manu');
+  accounting.addEmployee('Max');//will not be added
+  accounting.addEmployee('Manu');//will be added
+  accounting.addEmployee('John');//will be added
+  accounting.printEmployees();//['Manu', 'John']
   
-  // it.employees[2] = 'Anna';
   
-  it.describe();
-  it.name = 'NEW NAME';
-  it.printEmployees();
-  
-  console.log(it);
   
   
