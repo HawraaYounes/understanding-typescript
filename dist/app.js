@@ -11,9 +11,6 @@ class Department {
     static staticFunction(name) {
         return name;
     }
-    addEmployee(employee) {
-        this.employees.push(employee);
-    }
     printEmployees() {
         console.log(this.employees);
     }
@@ -23,6 +20,13 @@ class ITDepartment extends Department {
     constructor(id, admins) {
         super(id, 'IT'); //The super keyword is used to or invoke a Departments's constructor.
         this.admins = admins;
+    }
+    addEmployee(employee) {
+        if (employee === 'Max') {
+            return;
+        }
+        this.employees.push(employee); //We can access employees array since its of type protected
+        console.log("Employee added by IT department");
     }
 }
 class AccountingDepartment extends Department {
@@ -53,6 +57,7 @@ class AccountingDepartment extends Department {
             return;
         }
         this.employees.push(employee); //We can access employees array since its of type protected
+        console.log("Employee added by Accounting department");
     }
 }
 console.log(Department.year, Department.staticFunction); //static method that cannot be accessed on class instance,it's accessed on class itself.

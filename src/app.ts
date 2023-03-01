@@ -1,4 +1,4 @@
-    class  Department{
+    abstract class  Department{
         static year=2023;
         protected employees:string[]=[];//protected make the property not accessible outside the class,but accessible to children that extends it.
         
@@ -11,9 +11,7 @@
         static staticFunction(name:string){
             return name;
         }
-        addEmployee(employee:string){
-            this.employees.push(employee);
-        }
+        abstract addEmployee(employee:string):void;//abstract method is required on all Departments's class instances
         printEmployees(){
             console.log(this.employees);
         }
@@ -24,6 +22,13 @@
         constructor(id: string, admins: string[]) {
         super(id, 'IT');//The super keyword is used to or invoke a Departments's constructor.
         this.admins = admins;
+        }
+        addEmployee(employee:string){//override addEmployee method present in Department class
+            if(employee==='Max'){
+                return;
+            }
+            this.employees.push(employee);//We can access employees array since its of type protected
+            console.log("Employee added by IT department");
         }
     }
   
@@ -55,6 +60,7 @@
             return;
         }
         this.employees.push(employee);//We can access employees array since its of type protected
+        console.log("Employee added by Accounting department");
     }
   }
   console.log(Department.year,Department.staticFunction);//static method that cannot be accessed on class instance,it's accessed on class itself.
