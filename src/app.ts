@@ -1,5 +1,9 @@
-interface Greetable{//Interface It defines the syntax(structure) for objects to follow
+interface Named{//Interface, it defines the syntax(structure) for objects to follow
     readonly name:string;
+}
+
+interface Greetable extends Named{//Interface that extends Named,which force a class that implements them Greetable follow both Named & Greetable structure
+   
     age:number;
     greet(phrase:string):void;
 
