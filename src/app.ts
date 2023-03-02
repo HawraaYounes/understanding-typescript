@@ -18,6 +18,8 @@
 //Video 84: More on Type Guards
       //'typeof' type guard
       type alphanumeric=string | number;
+      function addNumbers(a:string, b:string):string;//function overload (Video 88)
+      function addNumbers(a:number, b:number): number;//function overload
       function addNumbers(a:alphanumeric,b:alphanumeric){
         if(typeof a==='number' && typeof b==='number'){
           return a+b;
