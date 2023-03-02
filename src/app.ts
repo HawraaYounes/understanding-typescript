@@ -14,6 +14,7 @@
       }
 
       showType({ id: 1, left: "test", right: "test" }) // Output: {id: 1, left: "test", right: "test"}
+
 //Video 84: More on Type Guards
       //'typeof' type guard
       type alphanumeric=string | number;
@@ -69,4 +70,29 @@
     }
     printPaddingInformation({ id: 634, right: '70%' });
 
-    
+//Video 85: Discriminated Unions
+    interface Bird {
+      type: 'bird';
+      flyingSpeed: number;
+    }
+
+    interface Horse {
+      type: 'horse';
+      runningSpeed: number;
+    }
+
+    type Animal = Bird | Horse;
+
+    function moveAnimal(animal: Animal) {
+      let speed;
+      switch (animal.type) { //checking the type of the animal
+        case 'bird':
+          speed = animal.flyingSpeed; //we can access flyingSpeed, since in this case we're sure that the animal type is bird.
+          break;
+        case 'horse':
+          speed = animal.runningSpeed; //we can access runningSpeed, since in this case we're sure that the animal type is horse.
+      }
+      console.log('Moving at speed: ' + speed);
+    }
+
+    moveAnimal({type: 'bird', flyingSpeed: 10}); //Moving at speed: 10

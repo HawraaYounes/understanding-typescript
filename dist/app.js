@@ -47,3 +47,15 @@ function printPaddingInformation(padding) {
     }
 }
 printPaddingInformation({ id: 634, right: '70%' });
+function moveAnimal(animal) {
+    let speed;
+    switch (animal.type) { //checking the type of the animal
+        case 'bird':
+            speed = animal.flyingSpeed; //we can access flyingSpeed, since in this case we're sure that the animal type is bird.
+            break;
+        case 'horse':
+            speed = animal.runningSpeed; //we can access runningSpeed, since in this case we're sure that the animal type is horse.
+    }
+    console.log('Moving at speed: ' + speed);
+}
+moveAnimal({ type: 'bird', flyingSpeed: 10 }); //Moving at speed: 10
