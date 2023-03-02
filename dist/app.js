@@ -94,3 +94,8 @@ const adventurer = {
 const catName = (_a = adventurer.cat) === null || _a === void 0 ? void 0 : _a.name;
 console.log(catName); // Expected output: Bella
 //console.log(adventurer.dog?.name); // Error: Property 'dog' does not exist on type '{ name: string; cat: { name: string; }; 
+//Video 90: Nullish Coalescing
+const foo = null !== null && null !== void 0 ? null : 'DEFAULT'; //(??)logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
+console.log(foo); // "DEFAULT"
+const number = 0 !== null && 0 !== void 0 ? 0 : 42;
+console.log(number); // 0
