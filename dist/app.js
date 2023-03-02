@@ -1,4 +1,5 @@
 "use strict";
+var _a;
 function showType(args) {
     console.log(args);
 }
@@ -83,3 +84,13 @@ function totalSalary(salaryObject) {
 }
 console.log(totalSalary(salary1)); // 120000
 console.log(totalSalary(salary2)); // 110000
+//Video 89: Optional Chaining
+const adventurer = {
+    name: 'Alice',
+    cat: {
+        name: 'Bella'
+    }
+};
+const catName = (_a = adventurer.cat) === null || _a === void 0 ? void 0 : _a.name;
+console.log(catName); // Expected output: Bella
+//console.log(adventurer.dog?.name); // Error: Property 'dog' does not exist on type '{ name: string; cat: { name: string; }; 
