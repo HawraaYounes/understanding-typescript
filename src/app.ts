@@ -104,3 +104,23 @@
       (userInputElement as HTMLInputElement).value = 'Hi there!';
       console.log((userInputElement as HTMLInputElement).value)
     }
+
+//Video 87: Index Properties
+    const salary1 = {
+      baseSalary: 100_000,
+      yearlyBonus: 20_000
+    };
+    
+    const salary2 = {
+      contractSalary: 110_000
+    };
+    function totalSalary(salaryObject: { [key: string]: number }) {//accepts arguments with unkown names and numbers, all what we know that thet're all of type 'number
+      let total = 0;
+      for (const name in salaryObject) {
+        total += salaryObject[name];
+      }
+      return total;
+    }
+    
+    console.log(totalSalary(salary1)); // 120000
+    console.log(totalSalary(salary2)) // 110000

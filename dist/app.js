@@ -66,3 +66,20 @@ if (userInputElement) {
     userInputElement.value = 'Hi there!';
     console.log(userInputElement.value);
 }
+//Video 87: Index Properties
+const salary1 = {
+    baseSalary: 100000,
+    yearlyBonus: 20000
+};
+const salary2 = {
+    contractSalary: 110000
+};
+function totalSalary(salaryObject) {
+    let total = 0;
+    for (const name in salaryObject) {
+        total += salaryObject[name];
+    }
+    return total;
+}
+console.log(totalSalary(salary1)); // 120000
+console.log(totalSalary(salary2)); // 110000
