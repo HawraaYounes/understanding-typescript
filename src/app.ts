@@ -96,3 +96,11 @@
     }
 
     moveAnimal({type: 'bird', flyingSpeed: 10}); //Moving at speed: 10
+
+//Video 86: Type Casting
+    //const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
+    const userInputElement = document.getElementById("user-input");
+    if (userInputElement) {
+      (userInputElement as HTMLInputElement).value = 'Hi there!';
+      console.log((userInputElement as HTMLInputElement).value)
+    }
