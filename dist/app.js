@@ -10,6 +10,8 @@ function Logger(c) {
     console.log("Hello from Logger");
     console.log(c);
 }
+// @Logger //Point to the function Logger
+// @Factory('Decorator Factories') //Factory will be xecuted before Logger(bottom to top)
 let Teacher = class Teacher {
     constructor() {
         this.name = 'Max';
@@ -17,9 +19,7 @@ let Teacher = class Teacher {
     }
 };
 Teacher = __decorate([
-    Logger //Point to the function Logger
-    ,
-    Factory('Decorator Factories') //Factory will be xecuted before Logger(bottom to top)
+    WithTemplate('<h1>My Person Object</h1>', 'decorator-div')
 ], Teacher);
 const teacher = new Teacher;
 //Video 106: Working with Decorator Factories
@@ -27,5 +27,16 @@ function Factory(text) {
     return function (constructor) {
         console.log(constructor);
         console.log(text);
+    };
+}
+//Video 107: Building More Useful Decorators
+function WithTemplate(template, hookId) {
+    return function (constructor) {
+        const hookEl = document.getElementById(hookId);
+        const p = new constructor();
+        if (hookEl) {
+            hookEl.innerHTML = template;
+            hookEl.querySelector('h1').textContent = p.name;
+        }
     };
 }
