@@ -18,6 +18,14 @@ let Teacher = class Teacher {
 };
 Teacher = __decorate([
     Logger //Point to the function Logger
+    ,
+    Factory('Decorator Factories') //Factory will be xecuted before Logger(bottom to top)
 ], Teacher);
 const teacher = new Teacher;
 //Video 106: Working with Decorator Factories
+function Factory(text) {
+    return function (constructor) {
+        console.log(constructor);
+        console.log(text);
+    };
+}
