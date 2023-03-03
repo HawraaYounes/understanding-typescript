@@ -5,12 +5,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 //Video 105: A First Class Decorator
-function Logger(c) {
+function ClassDecorator(c) {
     console.log("Hello from Logger");
 }
-// @Logger //Point to the function Logger
-// @Factory('Decorator Factories') //Factory will be xecuted before Logger(bottom to top)
 let Teacher = class Teacher {
     constructor() {
         this.name = 'Max';
@@ -18,11 +19,15 @@ let Teacher = class Teacher {
     }
 };
 Teacher = __decorate([
+    ClassDecorator //Point to the function Logger
+    ,
+    FactoryDecorator('Decorator Factories') //Factory will be xecuted before Logger(bottom to top)
+    ,
     WithTemplate('<h1>My Person Object</h1>', 'decorator-div')
 ], Teacher);
 const teacher = new Teacher;
 //Video 106: Working with Decorator Factories
-function Factory(text) {
+function FactoryDecorator(text) {
     return function (constructor) {
         console.log(constructor);
         console.log(text);
@@ -40,14 +45,46 @@ function WithTemplate(template, hookId) {
     };
 }
 //Video 109: Diving into Property Decorators
-const printMemberName = (target, memberName) => {
-    console.log(memberName); //name
+const PropertyDecorator = (target, memberName) => {
+    console.log(memberName); //the name of the property:fullname
 };
 class Property {
     constructor() {
-        this.name = "Jon";
+        this.fullname = "Jon";
     }
 }
 __decorate([
-    printMemberName //Property Decorator
-], Property.prototype, "name", void 0);
+    PropertyDecorator //Property Decorator
+], Property.prototype, "fullname", void 0);
+//Video 110: Accessor & Parameter Decorators
+//Accessor Decorator
+const AccessorDecorator = () => {
+    return (target, memberName, propertyDescriptor) => {
+        console.log(memberName); //The name of the member(accessor). //fullName
+        console.log(propertyDescriptor); //The Property Descriptor for the memberName.
+        console.log("Accessor Decorator");
+    };
+};
+class Accessor {
+    constructor() {
+        this.firstName = "Jon";
+        this.lastName = "Doe";
+    }
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+__decorate([
+    AccessorDecorator()
+], Accessor.prototype, "fullName", null);
+//Parameter Decorator
+function ParameterDecorator(target, propertyKey, parameterIndex) {
+    console.log(propertyKey); //The name of the member.(functionthat have this parameter) :testMethod
+    console.log(parameterIndex); //The ordinal index of the parameter in the function’s parameter list :1
+}
+class TestClass {
+    testMethod(param1) { }
+}
+__decorate([
+    __param(0, ParameterDecorator)
+], TestClass.prototype, "testMethod", null);

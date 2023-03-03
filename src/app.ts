@@ -1,10 +1,10 @@
 //Video 105: A First Class Decorator
-    function Logger(c:Function){//Teacher construcor as an argument
+    function ClassDecorator(c:Function){//Teacher construcor as an argument
         console.log("Hello from Logger");
     }
 
-    // @Logger //Point to the function Logger
-    // @Factory('Decorator Factories') //Factory will be xecuted before Logger(bottom to top)
+    @ClassDecorator //Point to the function Logger
+    @FactoryDecorator('Decorator Factories') //Factory will be xecuted before Logger(bottom to top)
     @WithTemplate('<h1>My Person Object</h1>', 'decorator-div')
     class Teacher{
         name='Max';
@@ -15,7 +15,7 @@
     const teacher=new Teacher;
 
 //Video 106: Working with Decorator Factories
-    function Factory(text:string){ //decorator factory that returns a decorator function
+    function FactoryDecorator(text:string){ //decorator factory that returns a decorator function
         return function(constructor:Function){
             console.log(constructor);
             console.log(text);
@@ -34,11 +34,37 @@
     }
 
 //Video 109: Diving into Property Decorators
-    const printMemberName = (target: any, memberName: string) => {
-        console.log(memberName);//name
+    const PropertyDecorator = (target: any, memberName: string) => {
+        console.log(memberName);//the name of the property:fullname
     };
     
     class Property {
-        @printMemberName //Property Decorator
-        name: string = "Jon";
+        @PropertyDecorator //Property Decorator
+        fullname: string = "Jon";
     }
+//Video 110: Accessor & Parameter Decorators
+    //Accessor Decorator
+    const AccessorDecorator = () => {
+        return (target: any, memberName: string, propertyDescriptor: PropertyDescriptor) => {
+            console.log(memberName); //The name of the member(accessor). //fullName
+            console.log(propertyDescriptor); //The Property Descriptor for the memberName.
+            console.log("Accessor Decorator")
+        }
+    }
+    class Accessor {
+        firstName: string = "Jon"
+        lastName: string = "Doe"
+    
+        @AccessorDecorator()
+        get fullName () {
+        return `${this.firstName} ${this.lastName}`;
+        }
+    }
+    //Parameter Decorator
+    function ParameterDecorator(target: Object, propertyKey: string, parameterIndex: number) {
+        console.log(propertyKey);//The name of the member.(functionthat have this parameter) :testMethod
+        console.log(parameterIndex);//The ordinal index of the parameter in the function’s parameter list :1
+      }
+      class TestClass {
+        testMethod(@ParameterDecorator param1: any) {}
+      }
