@@ -8,14 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 //Video 105: A First Class Decorator
 function Logger(c) {
     console.log("Hello from Logger");
-    console.log(c);
 }
 // @Logger //Point to the function Logger
 // @Factory('Decorator Factories') //Factory will be xecuted before Logger(bottom to top)
 let Teacher = class Teacher {
     constructor() {
         this.name = 'Max';
-        console.log("Person Constructor");
+        console.log("Teacher Constructor");
     }
 };
 Teacher = __decorate([
@@ -40,3 +39,15 @@ function WithTemplate(template, hookId) {
         }
     };
 }
+//Video 109: Diving into Property Decorators
+const printMemberName = (target, memberName) => {
+    console.log(memberName); //name
+};
+class Property {
+    constructor() {
+        this.name = "Jon";
+    }
+}
+__decorate([
+    printMemberName //Property Decorator
+], Property.prototype, "name", void 0);

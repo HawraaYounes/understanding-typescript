@@ -1,7 +1,6 @@
 //Video 105: A First Class Decorator
     function Logger(c:Function){//Teacher construcor as an argument
         console.log("Hello from Logger");
-        console.log(c);
     }
 
     // @Logger //Point to the function Logger
@@ -10,7 +9,7 @@
     class Teacher{
         name='Max';
         constructor(){
-            console.log("Person Constructor");
+            console.log("Teacher Constructor");
         }
     }
     const teacher=new Teacher;
@@ -34,4 +33,12 @@
         }
     }
 
+//Video 109: Diving into Property Decorators
+    const printMemberName = (target: any, memberName: string) => {
+        console.log(memberName);//name
+    };
     
+    class Property {
+        @printMemberName //Property Decorator
+        name: string = "Jon";
+    }
