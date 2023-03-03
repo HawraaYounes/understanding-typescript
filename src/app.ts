@@ -68,3 +68,9 @@
       class TestClass {
         testMethod(@ParameterDecorator param1: any) {}
       }
+
+//Video 11: When do Decorators Execute?
+    // Decorators are always executed when the class declaration is executed. Since most class declarations
+    //  are often in the top-level scope of a module, that can mean that they run when the code is executed,
+    //   but there's nothing stopping you from having a class declaration inside of another function, in which
+    //    case the decorators would only run when that function was called.
