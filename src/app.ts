@@ -80,36 +80,19 @@ class ProjectInput {
     }
     private gatherUserInput(): [string, string, number] | void {
         const enteredTitle = this.titleInputElement.value;
-    const enteredDescription = this.descriptionInputElement.value;
-    const enteredPeople = this.peopleInputElement.value;
-
-    const titleValidatable: Validatable = {
-      value: enteredTitle,
-      required: true
-    };
-    const descriptionValidatable: Validatable = {
-      value: enteredDescription,
-      required: true,
-      minLength: 5
-    };
-    const peopleValidatable: Validatable = {
-      value: +enteredPeople,
-      required: true,
-      min: 1,
-      max: 5
-    };
-
-    if (
-      !validate(titleValidatable) ||
-      !validate(descriptionValidatable) ||
-      !validate(peopleValidatable)
-    ) {
-      alert('Invalid input, please try again!');
-      return;
-    } else {
-      return [enteredTitle, enteredDescription, +enteredPeople];
-    }
-
+        const enteredDescription = this.descriptionInputElement.value;
+        const enteredPeople = this.peopleInputElement.value;
+    
+        if (
+          enteredTitle.trim().length === 0 ||
+          enteredDescription.trim().length === 0 ||
+          enteredPeople.trim().length === 0
+        ) {
+          alert('Invalid input, please try again!');
+          return;
+        } else {
+          return [enteredTitle, enteredDescription, +enteredPeople];
+        }
       }
     
       private clearInputs() {

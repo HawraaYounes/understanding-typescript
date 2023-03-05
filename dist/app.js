@@ -60,24 +60,9 @@ class ProjectInput {
         const enteredTitle = this.titleInputElement.value;
         const enteredDescription = this.descriptionInputElement.value;
         const enteredPeople = this.peopleInputElement.value;
-        const titleValidatable = {
-            value: enteredTitle,
-            required: true
-        };
-        const descriptionValidatable = {
-            value: enteredDescription,
-            required: true,
-            minLength: 5
-        };
-        const peopleValidatable = {
-            value: +enteredPeople,
-            required: true,
-            min: 1,
-            max: 5
-        };
-        if (!validate(titleValidatable) ||
-            !validate(descriptionValidatable) ||
-            !validate(peopleValidatable)) {
+        if (enteredTitle.trim().length === 0 ||
+            enteredDescription.trim().length === 0 ||
+            enteredPeople.trim().length === 0) {
             alert('Invalid input, please try again!');
             return;
         }
