@@ -1,3 +1,17 @@
+//Autobind Decorator
+function autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
+    const originalMethod = descriptor.value;//save original method description
+    const adjDescriptor: PropertyDescriptor = {
+      configurable: true,
+      get() {
+        const boundFn = originalMethod.bind(this);
+        return boundFn;
+      }
+    };
+    return adjDescriptor;
+  }
+
+//class ProjrctInput
 class ProjectInput {
     templateElement: HTMLTemplateElement;
     hostElement: HTMLDivElement;
@@ -21,12 +35,14 @@ class ProjectInput {
       this.configure();
       this.attach();
     }
+    @autobind
     private handleSubmit(e:Event){
         e.preventDefault();
         console.log(this.titleInputElement.value)
     }
+
     private configure(){
-        this.element.addEventListener('submit',this.handleSubmit.bind(this));
+        this.element.addEventListener('submit',this.handleSubmit);
     }
     private attach() {
       this.hostElement.insertAdjacentElement('afterbegin', this.element);//insert the copy of created template after begining of the div (between opening & closing tags)
