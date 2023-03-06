@@ -20,8 +20,8 @@
     console.log(y); // 30 ",," in destructuring means that the element is skipped
     console.log(remainingValues); // [40, 50]
 
-    const {a, b, ...restof} = {a: 10, b: 20, c: 30, d: 40};//Destructuring Object
-    console.log(a); // 10
+    const {aa, b, ...restof} = {aa: 10, b: 20, c: 30, d: 40};//Destructuring Object
+    console.log(aa); // 10
     console.log(b); // 20
     console.log(restof); // {m: 30, n: 40}
 

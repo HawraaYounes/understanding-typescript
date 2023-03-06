@@ -56,7 +56,7 @@
         lastName: string = "Doe"
     
         @AccessorDecorator()
-        get fullName () {
+        get fullName() {
         return `${this.firstName} ${this.lastName}`;
         }
     }
