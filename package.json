@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/HawraaYounes/understanding-typescript#readme",
   "devDependencies": {
+    "@types/lodash": "^4.14.191",
     "clean-webpack-plugin": "^4.0.0",
     "lite-server": "^2.6.1",
     "ts-loader": "^9.4.2",
@@ -26,5 +27,10 @@
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "lodash": "^4.17.21",
+    "reflect-metadata": "^0.1.13"
   }
 }
