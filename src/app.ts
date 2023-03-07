@@ -17,3 +17,15 @@ const loadedProducts = plainToClass(Product, products);
 for (const prod of loadedProducts) {
   console.log(prod.getInformation());
 }
+
+//Video 165: TypeScript-embracing: class-validator
+import { validate } from 'class-validator';
+const newProd = new Product('', -5.99);// VALIDATION ERRORS!
+validate(newProd).then(errors => {
+  if (errors.length > 0) {
+    console.log('VALIDATION ERRORS!');
+    console.log(errors);
+  } else {
+    console.log(newProd.getInformation());
+  }
+});

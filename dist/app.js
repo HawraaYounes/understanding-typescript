@@ -11,4 +11,15 @@ const loadedProducts = plainToClass(Product, products);
 for (const prod of loadedProducts) {
     console.log(prod.getInformation());
 }
+import { validate } from 'class-validator';
+const newProd = new Product('', -5.99);
+validate(newProd).then(errors => {
+    if (errors.length > 0) {
+        console.log('VALIDATION ERRORS!');
+        console.log(errors);
+    }
+    else {
+        console.log(newProd.getInformation());
+    }
+});
 //# sourceMappingURL=app.js.map
